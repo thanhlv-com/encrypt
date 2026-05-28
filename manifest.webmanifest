@@ -1,0 +1,1 @@
+{"name":"CryptoTools","short_name":"CryptoTools","description":"Encrypt and decrypt text with AES, DES, Triple DES, and RC4 in your browser.","start_url":"/","display":"standalone","background_color":"#ffffff","theme_color":"#ffffff","lang":"en","scope":"/","id":"/","icons":[{"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
