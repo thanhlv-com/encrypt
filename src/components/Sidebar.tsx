@@ -8,8 +8,6 @@ type SidebarProps = {
   onToolSelect: (id: string) => void;
 };
 
-const CATEGORIES: ToolCategory[] = ['Encryption'];
-
 export function Sidebar({ activeToolId, onToolSelect }: SidebarProps) {
   const categories: ToolCategory[] = ['Cryptography'];
   const { theme, setTheme } = useTheme();

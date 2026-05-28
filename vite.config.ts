@@ -11,21 +11,23 @@ export default defineConfig(() => {
       tailwindcss(),
       VitePWA({
         registerType: 'autoUpdate',
+        includeAssets: ['CNAME', 'robots.txt', 'sitemap.xml', 'llms.txt', 'icon.svg'],
         manifest: {
+          id: '/',
+          start_url: '/',
           name: 'CryptoTools',
           short_name: 'CryptoTools',
-          description: 'A comprehensive suite of cryptography tools',
+          description: 'Encrypt and decrypt text with AES, DES, Triple DES, and RC4 in your browser.',
+          display: 'standalone',
+          background_color: '#ffffff',
           theme_color: '#ffffff',
+          lang: 'en',
           icons: [
             {
-              src: '/icon-192x192.png',
-              sizes: '192x192',
-              type: 'image/png'
-            },
-            {
-              src: '/icon-512x512.png',
-              sizes: '512x512',
-              type: 'image/png'
+              src: '/icon.svg',
+              sizes: 'any',
+              type: 'image/svg+xml',
+              purpose: 'any maskable',
             }
           ]
         },

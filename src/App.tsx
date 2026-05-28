@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { TOOLS } from './tools';
 import { EncryptionTool } from './tools/EncryptionTool';
+import { applySeoForTool } from './seo';
 
 export default function App() {
   const [activeToolId, setActiveToolId] = useState(() => {
@@ -33,12 +34,19 @@ export default function App() {
     }
   };
 
+  const activeTool = TOOLS.find(t => t.id === activeToolId) || TOOLS[0];
+  const uniqueAlgos = Array.from(new Set(TOOLS.map(t => t.algo)));
+
   useEffect(() => {
     const currentPath = window.location.pathname.replace(/^\/+/, '');
     if (currentPath !== activeToolId) {
       window.history.pushState(null, '', `/${activeToolId}`);
     }
   }, [activeToolId]);
+
+  useEffect(() => {
+    applySeoForTool(activeTool);
+  }, [activeTool]);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -52,9 +60,6 @@ export default function App() {
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
-
-  const activeTool = TOOLS.find(t => t.id === activeToolId) || TOOLS[0];
-  const uniqueAlgos = Array.from(new Set(TOOLS.map(t => t.algo)));
 
   return (
     <div className="flex h-screen bg-[#F8F9FA] dark:bg-slate-950 font-sans text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-200">

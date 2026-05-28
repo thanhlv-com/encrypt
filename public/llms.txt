@@ -1,0 +1,29 @@
+# CryptoTools
+
+> Non-standard AI discovery hint file. Not an official web standard.
+
+## Site
+- Canonical: https://encrypt-tools.thanhlv.com/
+- Purpose: Browser-based encryption/decryption utilities.
+- Language: en
+
+## Main Routes
+- https://encrypt-tools.thanhlv.com/aes-encrypt
+- https://encrypt-tools.thanhlv.com/aes-decrypt
+- https://encrypt-tools.thanhlv.com/des-encrypt
+- https://encrypt-tools.thanhlv.com/des-decrypt
+- https://encrypt-tools.thanhlv.com/tripledes-encrypt
+- https://encrypt-tools.thanhlv.com/tripledes-decrypt
+- https://encrypt-tools.thanhlv.com/rc4-encrypt
+- https://encrypt-tools.thanhlv.com/rc4-decrypt
+
+## Data Handling
+- Processing: Client-side in browser.
+- Network dependency: Not required for core crypto operations.
+- Inputs: Plaintext/ciphertext and secret key entered by user.
+- Warning: DES and RC4 are legacy algorithms; use with caution.
+
+## Content Policy Signals
+- Search indexing preference is controlled via robots.txt and meta directives.
+- Snippet behavior can be controlled with robots meta and data-nosnippet patterns if added later.
+

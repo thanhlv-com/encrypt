@@ -3,6 +3,7 @@ import CryptoJS from 'crypto-js';
 import { ToolLayout, CopyButton } from '../components/ToolLayout';
 import { ToolItem } from '../tools';
 import { ArrowLeftRight } from 'lucide-react';
+import { getToolContent } from '../toolContent';
 
 interface EncryptionToolProps {
   tool: ToolItem;
@@ -18,6 +19,7 @@ export function EncryptionTool({ tool, onSwapTool }: EncryptionToolProps) {
 
   const mode = tool.mode;
   const algo = tool.algo;
+  const content = getToolContent(tool);
 
   const input = mode === 'encrypt' ? encryptInput : decryptInput;
   const setInput = mode === 'encrypt' ? setEncryptInput : setDecryptInput;
@@ -87,6 +89,28 @@ export function EncryptionTool({ tool, onSwapTool }: EncryptionToolProps) {
 
   return (
     <ToolLayout title={tool.name} description={`Symmetric ${mode}ion using the ${algo.toUpperCase()} algorithm.`}>
+      <section className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 md:p-5 shadow-sm dark:shadow-none">
+        <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-100">Quick Summary</h3>
+        <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{content.summary}</p>
+        <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Typical Use Cases</h4>
+            <ul className="mt-2 space-y-1 text-sm text-slate-600 dark:text-slate-400 list-disc pl-5">
+              {content.useCases.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Security Notes</h4>
+            <ul className="mt-2 space-y-1 text-sm text-slate-600 dark:text-slate-400 list-disc pl-5">
+              {content.cautions.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
       
       <div className="flex items-center justify-end mb-4">
         <button
@@ -138,6 +162,18 @@ export function EncryptionTool({ tool, onSwapTool }: EncryptionToolProps) {
           </div>
         </div>
       </div>
+
+      <section className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 md:p-5 shadow-sm dark:shadow-none">
+        <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-100">FAQ</h3>
+        <div className="mt-3 space-y-3">
+          {content.faq.map((item) => (
+            <div key={item.question}>
+              <h4 className="text-sm font-medium text-slate-700 dark:text-slate-200">{item.question}</h4>
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{item.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </ToolLayout>
   );
 }

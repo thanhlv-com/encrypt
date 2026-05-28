@@ -46,9 +46,9 @@ jobs:
           path: |
             ~/.npm
             node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.yaml') }}}}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.yaml') }} }}
+            ${{ runner.os }}-node-
       - name: Send Telegram Message - Install deps
         uses: cbrgm/telegram-github-action@v1
         with:
