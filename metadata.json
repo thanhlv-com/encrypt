@@ -1,0 +1,6 @@
+{
+  "name": "CryptoTools",
+  "description": "A comprehensive suite of cryptography tools including AES, DES, Triple DES, and RC4 encryption and decryption.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
